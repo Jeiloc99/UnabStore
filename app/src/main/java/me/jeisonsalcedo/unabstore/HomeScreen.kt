@@ -78,24 +78,27 @@ fun HomeScreen(onClickLogout: () -> Unit = {}) {
     }
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
 
-        Column { Text("HOME SCREEN", fontSize = 30.sp)
+        Column {
+            Text("HOME SCREEN", fontSize = 30.sp)
 
-            if(user !=null){
+            if (user != null) {
                 Text(user.email.toString())
-            }else{
+            } else {
                 Text("No hay usuario")
             }
-            Button(onClick = {
-                auth.signOut()
-                onClickLogout()
-            },
+            Button(
+                onClick = {
+                    auth.signOut()
+                    onClickLogout()
+                },
                 colors = ButtonDefaults.buttonColors(
                     contentColor = Color(0xFFFF9900)
                 )
-            ){
+            ) {
                 Text("Cerrar sesión")
             }
         }
 
     }
+
 }
